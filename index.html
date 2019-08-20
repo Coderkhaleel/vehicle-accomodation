@@ -2,14 +2,15 @@
 <html>
 <body>
 
-Refreshing position in <p id="notify"></p>
+Refreshing position in <span id="notify"></span>
 
 
-<p id="demo"></p>
+<p id="demo" style="font-size:30px;font-weight:bold;"></p>
 
 <script>
 var x = document.getElementById("demo");
 var y = document.getElementById("notify");
+getLocation();
 setInterval(function(){getLocation()}, 20000);
 var childinterval
 function getLocation() {
