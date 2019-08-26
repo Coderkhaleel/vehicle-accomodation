@@ -12,6 +12,7 @@ Refreshing position in <span id="notify"></span>
 
 <p id="demo" style="font-size:30px;font-weight:bold;"></p>
   <span class="ipAdd"></span>
+<span class="isInside"></span>
 <script>
   var myip = ''
 $(document).ready(function ubsrt()
@@ -53,10 +54,10 @@ function getLocation() {
  var isInside = false
 function showPosition(position) {
   isInside = isLatLngInZone(position.coords.latitude, position.coords.longitude)
- if (isInside) {
-  alert('you are inside the plant/site/campus')
- } else { 
-  alert('you are outside the plant/site/campus')
+ if (isInside) {  
+	$('.isInside').text('You are inside the plant/site/campus!');
+ } else {   
+	$('.isInside').text('You are outside the plant/site/campus!');
  }
   x.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
