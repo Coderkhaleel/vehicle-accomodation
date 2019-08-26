@@ -50,10 +50,44 @@ function getLocation() {
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
 }
-
+ var isInside = false
 function showPosition(position) {
+  isInside = isLatLngInZone(position.coords.latitude, position.coords.longitude)
+ if (isInside) {
+  alert('you are inside the plant/site/campus')
+ } else { 
+  alert('you are outside the plant/site/campus')
+ }
   x.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
+}
+var latlngs = [{"lat":12.912578,"lng":80.218557},{"lat":12.914157,"lng":80.218805},{"lat":12.913906,"lng":80.220145},{"lat":12.912358,"lng":80.219759}]
+	
+function isLatLngInZone(lat,lng){
+  vertices_y = new Array();
+  vertices_x = new Array();
+  longitude_x = lng;
+  latitude_y = lat;
+  latLngs = latlngs;
+  var r = 0;
+  var i = 0;
+  var j = 0;
+  var c = 0;
+  var point = 0;
+
+  for(r=0; r<latLngs.length; r++){
+   vertices_y.push(latLngs[r].lat);
+   vertices_x.push(latLngs[r].lng);
+  }
+  points_polygon = vertices_x.length;
+  for(i = 0, j = points_polygon; i < points_polygon; j = i++){
+   point = i;
+   if(point == points_polygon)
+    point = 0;
+   if ( ((vertices_y[point]  >  latitude_y != (vertices_y[j] > latitude_y)) && (longitude_x < (vertices_x[j] - vertices_x[point]) * (latitude_y - vertices_y[point]) / (vertices_y[j] - vertices_y[point]) + vertices_x[point]) ) )
+    c = !c;
+  }
+return c;
 }
 </script>
 
