@@ -54,7 +54,7 @@ setInterval(function(){getLocation()}, 20000);
 });
 function getLocation() {
   console.log('called main')
-  childinterval !== undefined ? clearInterval(childinterval) : false
+  typeof childinterval !== undefined ? clearInterval(childinterval) : false
   var sec = 20
   childinterval = setInterval(function(){sec = sec-1; notify.innerHTML = sec;console.log('called seconds' + sec);}, 1000);
   if (navigator.geolocation) {
