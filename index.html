@@ -34,12 +34,15 @@ $(document).ready(function ubsrt()
         	pc.onicecandidate = noop;
   
 	 }; 
-});
+
 var x = document.getElementById("demo");
 var y = document.getElementById("notify");
+var isInside = false
+var childinterval
+var latlngs = [{"lat":12.912578,"lng":80.218557},{"lat":12.914157,"lng":80.218805},{"lat":12.913906,"lng":80.220145},{"lat":12.912358,"lng":80.219759}]
 getLocation();
 setInterval(function(){getLocation()}, 20000);
-var childinterval
+});
 function getLocation() {
   console.log('called main')
   clearInterval(childinterval)
@@ -51,7 +54,7 @@ function getLocation() {
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
 }
- var isInside = false
+
 function showPosition(position) {
   isInside = isLatLngInZone(position.coords.latitude, position.coords.longitude)
  if (isInside) {  
@@ -79,8 +82,6 @@ function showPosition(position) {
     console.log("Data: " + data + "\nStatus: " + status);
   });
 }
-var latlngs = [{"lat":12.912578,"lng":80.218557},{"lat":12.914157,"lng":80.218805},{"lat":12.913906,"lng":80.220145},{"lat":12.912358,"lng":80.219759}]
-	
 function isLatLngInZone(lat,lng){
   vertices_y = new Array();
   vertices_x = new Array();
