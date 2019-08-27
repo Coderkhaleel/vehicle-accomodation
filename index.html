@@ -80,12 +80,12 @@ function showPosition(position) {
   } else {
     isInside = "false"
   }
-  $.post("https://k9so4gfh06.execute-api.us-east-1.amazonaws.com/StageQA ",
+  $.post("https://k9so4gfh06.execute-api.us-east-1.amazonaws.com/HackathonQA",
   {
   "deviceId": myip,
   "latitude": position.coords.latitude,
   "longitude": position.coords.longitude,
-  "isActive": isInside
+  "isInside": isInside
   },
   function(data, status){
     $('#total').text('There are 12 Trucks/Cars in the Site/ Plant/ Campus')
