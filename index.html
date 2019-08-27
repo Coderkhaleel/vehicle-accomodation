@@ -12,15 +12,16 @@
 <div class="main row" style="
     background: #F6CA27;padding-bottom:20px;
 ">
-<div class="topbar" style="background: #47A9BF;height: 20px;color: #fff;padding: 5px;">
+<div class="topbar" style="background: #47A9BF;height: 30px;color: #fff;padding: 5px;">
   <span class="ipAdd" style="float:right;"></span>
 </div>
 
 
 <div id="total"></div>
-<p id="demo" style="font-size:20px;font-weight:bold;"></p>
 <span class="isInside" style="font-size: 25px;"></span>
 <div style="margin-top:10px;">Refreshing position in <span id="notify"></span></div>
+
+<div id="demo" style="font-size:16px;margin-top:15px;"></div>
 </div>
 </div>
 <script>
@@ -72,7 +73,7 @@ function showPosition(position) {
  } else {   
 	$('.isInside').html('<i class="fa fa-sign-out" aria-hidden="true" style="color:red;font-size:30px;"></i> You are outside the plant/site/campus!');
  }
-  x.innerHTML = "Latitude: " + position.coords.latitude +  ", Longitude: " + position.coords.longitude;
+  x.innerHTML = "<span>Latitude: " + position.coords.latitude +  ", Longitude: " + position.coords.longitude + "</span>";
   if (isInside == 0 || isInside == false) {
     isInside = "false"
   } else if (isInside == 1 || isInside == true) {
