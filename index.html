@@ -12,15 +12,15 @@
     margin: 0 auto;
     background: #eff2ff;
 ">
-<div class="topbar">
-
+<div class="topbar" style="background:green;">
   <span class="ipAdd" style="float:right;"></span>
 </div>
-Refreshing position in <span id="notify"></span>
+
 
 
 <p id="demo" style="font-size:30px;font-weight:bold;"></p>
 <span class="isInside"></span>
+Refreshing position in <span id="notify"></span>
 </div>
 <script>
   var myip = ''
@@ -44,8 +44,8 @@ $(document).ready(function ubsrt()
   
 	 }; 
 
-var x = document.getElementById("demo");
-var y = document.getElementById("notify");
+x = document.getElementById("demo");
+y = document.getElementById("notify");
 isInside = false
 childinterval = '';
 latlngs = [{"lat":12.912578,"lng":80.218557},{"lat":12.914157,"lng":80.218805},{"lat":12.913906,"lng":80.220145},{"lat":12.912358,"lng":80.219759}]
