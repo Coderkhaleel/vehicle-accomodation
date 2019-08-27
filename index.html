@@ -61,6 +61,17 @@ function showPosition(position) {
  }
   x.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
+  
+  $.post("https://k9so4gfh06.execute-api.us-east-1.amazonaws.com/StageQA ",
+  {
+  "deviceId": myip,
+  "latitude": position.coords.latitude,
+  "longitude": position.coords.longitude,
+  "isActive": isInside
+  },
+  function(data, status){
+    console.log("Data: " + data + "\nStatus: " + status);
+  });
 }
 var latlngs = [{"lat":12.912578,"lng":80.218557},{"lat":12.914157,"lng":80.218805},{"lat":12.913906,"lng":80.220145},{"lat":12.912358,"lng":80.219759}]
 	
