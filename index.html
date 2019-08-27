@@ -55,9 +55,9 @@ function getLocation() {
 function showPosition(position) {
   isInside = isLatLngInZone(position.coords.latitude, position.coords.longitude)
  if (isInside) {  
-	$('.isInside').text('You are inside the plant/site/campus!');
+	$('.isInside').text('You are inside the plant/site/campus!' + isInside);
  } else {   
-	$('.isInside').text('You are outside the plant/site/campus!');
+	$('.isInside').text('You are outside the plant/site/campus!' + isInside);
  }
   x.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
