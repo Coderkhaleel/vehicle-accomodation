@@ -46,9 +46,9 @@ $(document).ready(function ubsrt()
 
 var x = document.getElementById("demo");
 var y = document.getElementById("notify");
-var isInside = false
-var childinterval = '';
-var latlngs = [{"lat":12.912578,"lng":80.218557},{"lat":12.914157,"lng":80.218805},{"lat":12.913906,"lng":80.220145},{"lat":12.912358,"lng":80.219759}]
+isInside = false
+childinterval = '';
+latlngs = [{"lat":12.912578,"lng":80.218557},{"lat":12.914157,"lng":80.218805},{"lat":12.913906,"lng":80.220145},{"lat":12.912358,"lng":80.219759}]
 getLocation();
 setInterval(function(){getLocation()}, 20000);
 });
