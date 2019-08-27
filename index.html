@@ -61,7 +61,13 @@ function showPosition(position) {
  }
   x.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
-  
+  if (isInside == 0 || isInside == false) {
+    isInside = "false"
+  } else if (isInside == 1 || isInside == true) {
+    isInside = "true"
+  } else {
+    isInside = "false"
+  }
   $.post("https://k9so4gfh06.execute-api.us-east-1.amazonaws.com/StageQA ",
   {
   "deviceId": myip,
