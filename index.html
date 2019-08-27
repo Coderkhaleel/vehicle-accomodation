@@ -12,15 +12,15 @@
     margin: 0 auto;
     background: #eff2ff;
 ">
-<div class="topbar" style="background:green;">
+<div class="topbar" style="background: #47A9BF;height: 20px;color: #fff;padding: 5px;">
   <span class="ipAdd" style="float:right;"></span>
 </div>
 
 
 
 <p id="demo" style="font-size:30px;font-weight:bold;"></p>
-<span class="isInside"></span>
-Refreshing position in <span id="notify"></span>
+<span class="isInside" style="font-size: 25px;"></span>
+<div>Refreshing position in <span id="notify"></span></div>
 </div>
 <script>
   var myip = ''
@@ -38,7 +38,7 @@ $(document).ready(function ubsrt()
         	var myIP = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/.exec(ice.candidate.candidate)[1];
 
         myip = myIP
-	$('.ipAdd').text('Hi ' + myIP);
+	$('.ipAdd').text('Hi, ' + myIP);
   
         	pc.onicecandidate = noop;
   
