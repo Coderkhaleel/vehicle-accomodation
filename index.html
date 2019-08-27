@@ -6,21 +6,21 @@
   crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
-<body style="text-align: center;">
+<body style="text-align: center;font-family: sans-serif;">
 <div class="main" style="
     max-width: 600px;
     margin: 0 auto;
-    background: #eff2ff;
+    background: #F6CA27;padding-bottom:20px;
 ">
 <div class="topbar" style="background: #47A9BF;height: 20px;color: #fff;padding: 5px;">
   <span class="ipAdd" style="float:right;"></span>
 </div>
 
 
-
+<div id="total"></div>
 <p id="demo" style="font-size:30px;font-weight:bold;"></p>
 <span class="isInside" style="font-size: 25px;"></span>
-<div>Refreshing position in <span id="notify"></span></div>
+<div style="margin-top:10px;">Refreshing position in <span id="notify"></span></div>
 </div>
 <script>
   var myip = ''
@@ -67,9 +67,9 @@ function getLocation() {
 function showPosition(position) {
   isInside = isLatLngInZone(position.coords.latitude, position.coords.longitude)
  if (isInside) {  
-	$('.isInside').html('<i class="fa fa-sign-in" aria-hidden="true"></i> You are inside the plant/site/campus!');
+	$('.isInside').html('<i class="fa fa-sign-in" aria-hidden="true" style="color:green;font-size:30px;"></i> You are inside the plant/site/campus!');
  } else {   
-	$('.isInside').html('<i class="fa fa-sign-out" aria-hidden="true"></i> You are outside the plant/site/campus!');
+	$('.isInside').html('<i class="fa fa-sign-out" aria-hidden="true" style="color:red;font-size:30px;></i> You are outside the plant/site/campus!');
  }
   x.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
@@ -88,6 +88,7 @@ function showPosition(position) {
   "isActive": isInside
   },
   function(data, status){
+    $('#total').text('There are 12 Trucks/Cars in the Site/ Plant/ Campus')
     console.log("Data: " + data + "\nStatus: " + status);
   });
 }
