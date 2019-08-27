@@ -12,7 +12,7 @@
 <div class="main row" style="
     background: #F6CA27;padding-bottom:20px;
 ">
-<div class="topbar" style="background: #47A9BF;height: 50px;color: #fff;padding: 5px 20px;font-size: 30px;">
+<div class="topbar" style="background: #3C978B;height: 50px;color: #fff;padding: 5px 40px;font-size: 30px;box-shadow: 2px 2px 20px #444;">
   <span class="ipAdd" style="float:right;"></span>
 </div>
 
@@ -20,7 +20,7 @@
 <div id="total" style="
     font-size: 70px;
 "></div>
-<div class="isInside" style="font-size: 25px;margin-top:70px;font-size: 50px;"></div>
+<div class="isInside" style="font-size: 25px;margin-top:70px;font-size: 65px;"></div>
 <div style="margin-top:10px;font-size:24px;">Refreshing position in <span id="notify"></span></div>
 
 <div id="demo" style="font-size:16px;margin-top:15px;font-size:30px;"></div>
@@ -71,9 +71,9 @@ function getLocation() {
 function showPosition(position) {
   isInside = isLatLngInZone(position.coords.latitude, position.coords.longitude)
  if (isInside == 1 || isInside == true || isInside == 'true') {  
-	$('.isInside').html('<i class="fa fa-sign-in" aria-hidden="true" style="color:green;font-size:90px;"></i><br>You are inside the plant/site/campus!');
+	$('.isInside').html('<i class="fa fa-sign-in" aria-hidden="true" style="color:green;font-size:120px;"></i><br>You are inside the plant/site/campus!');
  } else {   
-	$('.isInside').html('<i class="fa fa-sign-out" aria-hidden="true" style="color:red;font-size:90px;"></i><br>You are outside the plant/site/campus!');
+	$('.isInside').html('<i class="fa fa-sign-out" aria-hidden="true" style="color:red;font-size:120px;"></i><br>You are outside the plant/site/campus!');
  }
   x.innerHTML = "<span>Latitude: " + position.coords.latitude +  ", Longitude: " + position.coords.longitude + "</span>";
   if (isInside == 0 || isInside == false) {
