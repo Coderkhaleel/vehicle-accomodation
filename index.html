@@ -83,16 +83,21 @@ function showPosition(position) {
   } else {
     isInside = "false"
   }
-  $.post("https://k9so4gfh06.execute-api.us-east-1.amazonaws.com/HackathonQA",
-  {
+  
+  $.ajax({
+  type: "POST",
+  headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+  url: "https://k9so4gfh06.execute-api.us-east-1.amazonaws.com/HackathonQA",
+  data: {
   "deviceId": myip,
   "latitude": position.coords.latitude,
   "longitude": position.coords.longitude,
   "isInside": isInside
   },
-  function(data, status){
+  success: function(data, status){
     $('#total').text('There are 12 Trucks/Cars in the Site/ Plant/ Campus')
     console.log("Data: " + data + "\nStatus: " + status);
+  }
   });
 }
 function isLatLngInZone(lat,lng){
