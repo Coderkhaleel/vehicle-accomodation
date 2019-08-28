@@ -18,7 +18,7 @@
 
 
 <div id="total" style="
-    font-size: 70px;
+    font-size: 45px;
 "></div>
 <div class="isInside" style="font-size: 25px;margin-top:70px;font-size: 65px;"></div>
 <div style="margin-top:10px;font-size:24px;">Refreshing position in <span id="notify"></span></div>
@@ -92,7 +92,7 @@ function showPosition(position) {
   url: "https://k9so4gfh06.execute-api.us-east-1.amazonaws.com/HackathonQA",
   data: '{"deviceId": "'+myip+'","latitude": "'+position.coords.latitude+'","longitude": "'+position.coords.longitude+'","isInside":"'+ isInside+'"}',
   success: function(data, status){
-    $('#total').text('There are 12 Trucks/Cars in the Site/ Plant/ Campus')
+    $('#total').text('There are '+ data.devCountDetails +' Trucks/Cars in the Site/ Plant/ Campus')
     console.log("Data: " + data + "\nStatus: " + status);
   }
   });
