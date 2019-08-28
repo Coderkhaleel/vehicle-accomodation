@@ -86,9 +86,9 @@ function showPosition(position) {
   
   $.ajax({
   type: "POST",
-  headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },,
+  headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
   contentType: "application/json",
-  dataType: 'json'
+  dataType: 'json',
   url: "https://k9so4gfh06.execute-api.us-east-1.amazonaws.com/HackathonQA",
   data: '{"deviceId": "'+myip+'","latitude": "'+position.coords.latitude+'","longitude": "'+position.coords.longitude+'","isInside":"'+ isInside+'"}',
   success: function(data, status){
