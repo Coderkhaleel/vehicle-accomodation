@@ -53,7 +53,7 @@ y = document.getElementById("notify");
 isInside = false
 childinterval = '';
 latlngs = [{"lat":12.912578,"lng":80.218557},{"lat":12.914157,"lng":80.218805},{"lat":12.913906,"lng":80.220145},{"lat":12.912358,"lng":80.219759}]
-getLocation();
+setTimeout(function(){getLocation()},2000);
 setInterval(function(){getLocation()}, 20000);
 });
 function getLocation() {
@@ -88,7 +88,7 @@ function showPosition(position) {
   type: "POST",
   headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
   url: "https://k9so4gfh06.execute-api.us-east-1.amazonaws.com/HackathonQA",
-  data: '{"deviceId": "'+myip+'","latitude": "15","longitude": "'+position.coords.longitude+'","isInside":"false"}',
+  data: '{"deviceId": "'+myip+'","latitude": "'+position.coords.latitude+'","longitude": "'+position.coords.longitude+'","isInside":"'+ isInside+'"}',
   success: function(data, status){
     $('#total').text('There are 12 Trucks/Cars in the Site/ Plant/ Campus')
     console.log("Data: " + data + "\nStatus: " + status);
