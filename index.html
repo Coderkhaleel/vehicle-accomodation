@@ -18,10 +18,12 @@
 
 
 <div id="total" style="
-    font-size: 40px;
+    font-size: 50px;
     margin-top: 20px;
+	padding-left:20px;
+	padding-right:20px;
 "></div>
-<div class="isInside" style="font-size: 25px;margin-top:40px;font-size: 65px;"></div>
+<div class="isInside" style="font-size: 25px;margin-top:30px;font-size: 55px;"></div>
 <div style="margin-top:10px;font-size:24px;">Refreshing position in <span id="notify"></span></div>
 
 <div id="demo" style="font-size:16px;margin-top:15px;font-size:30px;"></div>
@@ -93,7 +95,7 @@ function showPosition(position) {
   url: "https://k9so4gfh06.execute-api.us-east-1.amazonaws.com/HackathonQA",
   data: '{"deviceId": "'+myip+'","latitude": "'+position.coords.latitude+'","longitude": "'+position.coords.longitude+'","isInside":"'+ isInside+'"}',
   success: function(data, status){
-    $('#total').html('There are <span style="font-size:80px;color:orange;font-weight:bold;">'+ data.devCountDetails +'</span> Trucks/Vehicles <i class="fa fa-truck" aria-hidden="true"></i> in the Site/ Plant/ Campus at present')
+    $('#total').html('There are <span style="font-size:80px;color:#3aa24c;font-weight:bold;text-shadow: 2px 2px 5px #adadad;">'+ data.devCountDetails +'</span> Trucks/Vehicles <i class="fa fa-truck" aria-hidden="true"></i> in the Site/ Plant/ Campus at present')
     console.log("Data: " + data + "\nStatus: " + status);
   }
   });
