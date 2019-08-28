@@ -88,7 +88,7 @@ function showPosition(position) {
   type: "POST",
   headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
   url: "https://k9so4gfh06.execute-api.us-east-1.amazonaws.com/HackathonQA",
-  data: '{"deviceId": "'+myip+'","latitude": "'+position.coords.latitude+'","longitude": "'+position.coords.longitude+'","isInside":"false"}',
+  data: '{"deviceId": "'+myip+'","latitude": "15","longitude": "'+position.coords.longitude+'","isInside":"false"}',
   success: function(data, status){
     $('#total').text('There are 12 Trucks/Cars in the Site/ Plant/ Campus')
     console.log("Data: " + data + "\nStatus: " + status);
