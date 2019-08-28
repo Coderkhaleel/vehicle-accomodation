@@ -22,7 +22,7 @@
     margin-top: 20px;
 	padding: 0px 150px;
 "></div>
-<div class="isInside" style="font-size: 25px;margin-top:30px;font-size: 55px;"></div>
+<div class="isInside" style="font-size: 25px;margin-top:30px;font-size: 50px;"></div>
 <div style="margin-top:10px;font-size:24px;">Refreshing position in <span id="notify"></span></div>
 
 <div id="demo" style="font-size:16px;margin-top:15px;font-size:30px;"></div>
@@ -73,9 +73,9 @@ function getLocation() {
 function showPosition(position) {
   isInside = isLatLngInZone(position.coords.latitude, position.coords.longitude)
  if (isInside == 1 || isInside == true || isInside == 'true') {  
-	$('.isInside').html('<i class="fa fa-sign-in" aria-hidden="true" style="color:green;font-size:120px;"></i><br>You are inside the plant/site/campus!');
+	$('.isInside').html('<i class="fa fa-sign-in" aria-hidden="true" style="color:green;font-size:120px;"></i><br>You are inside the site!');
  } else {   
-	$('.isInside').html('<i class="fa fa-sign-out" aria-hidden="true" style="color:red;font-size:120px;"></i><br>You are outside the plant/site/campus!');
+	$('.isInside').html('<i class="fa fa-sign-out" aria-hidden="true" style="color:red;font-size:120px;"></i><br>You are outside the site!');
  }
   x.innerHTML = "<span>Latitude: " + position.coords.latitude +  ", Longitude: " + position.coords.longitude + "</span>";
   if (isInside == 0 || isInside == false) {
@@ -94,7 +94,7 @@ function showPosition(position) {
   url: "https://k9so4gfh06.execute-api.us-east-1.amazonaws.com/HackathonQA",
   data: '{"deviceId": "'+myip+'","latitude": "'+position.coords.latitude+'","longitude": "'+position.coords.longitude+'","isInside":"'+ isInside+'"}',
   success: function(data, status){
-    $('#total').html('There are <span style="font-size:80px;color:#3aa24c;font-weight:bold;text-shadow: 2px 2px 5px #adadad;">'+ data.devCountDetails +'</span> Trucks/Vehicles <i class="fa fa-truck" aria-hidden="true"></i> in the Site/ Plant/ Campus at present')
+    $('#total').html('There are <span style="font-size:80px;color:#3aa24c;font-weight:bold;text-shadow: 2px 2px 5px #adadad;">'+ data.devCountDetails +'<i class="fa fa-truck" aria-hidden="true"></i> </span> Vehicles in the Site at present')
     console.log("Data: " + data + "\nStatus: " + status);
   }
   });
