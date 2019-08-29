@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 <html><head>
+<style>
+.loading-icon {
+  position: relative;
+  font-size: 40px !important;
+  margin-top: 40px;
+  -webkit-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear;
+}
+</style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script
   src="https://code.jquery.com/jquery-2.2.4.min.js"
@@ -16,7 +25,7 @@
   <span class="ipAdd" style="float:right;"></span>
 </div>
 
-
+<span class = "fa fa-spinner loading-icon"></span>
 <div id="total" style="
     font-size: 50px;
     margin-top: 20px;
@@ -91,11 +100,17 @@ function showPosition(position) {
   headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
   contentType: "application/json",
   dataType: 'json',
+  beforeSend: function(){
+    $(".loading-icon").show();
+  },
   url: "https://k9so4gfh06.execute-api.us-east-1.amazonaws.com/HackathonQA",
   data: '{"deviceId": "'+myip+'","latitude": "'+position.coords.latitude+'","longitude": "'+position.coords.longitude+'","isInside":"'+ isInside+'"}',
   success: function(data, status){
     $('#total').html('There are <span style="font-size:80px;color:#3aa24c;font-weight:bold;text-shadow: 2px 2px 5px #adadad;">'+ data.devCountDetails +'</span> <i class="fa fa-truck" aria-hidden="true"></i>  Vehicles in the Site at present')
-    console.log("Data: " + data + "\nStatus: " + status);
+    $(".loading-icon").hide();
+  },error: function(data, status){
+    $('#total').html('Unable to contact server. Please try again later.')
+    $(".loading-icon").hide();
   }
   });
 }
