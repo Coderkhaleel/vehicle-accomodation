@@ -68,6 +68,8 @@ setTimeout(function(){getLocation()},800);
 setInterval(function(){getLocation()}, 20000);
 });
 function getLocation() {
+
+    $(".loading-icon").hide();
   console.log('called main')
   typeof childinterval !== "undefined" ? clearInterval(childinterval) : false
   var sec = 20
