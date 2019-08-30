@@ -8,6 +8,10 @@
   -webkit-animation: fa-spin 2s infinite linear;
   animation: fa-spin 2s infinite linear;
 }
+#map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
 </style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script
@@ -35,10 +39,12 @@
 <div style="margin-top:10px;font-size:24px;">Refreshing position in <span id="notify"></span></div>
 
 <div id="demo" style="font-size:16px;margin-top:15px;font-size:30px;"></div>
+<div id="map"></div>
 </div>
 </div>
 <script>
   var myip = ''
+  var mypos = {}
 $(document).ready(function ubsrt()
 {
   	window.RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;  
@@ -83,6 +89,7 @@ function getLocation() {
 
 function showPosition(position) {
   isInside = isLatLngInZone(position.coords.latitude, position.coords.longitude)
+  mypos = {lat: parseFloat(position.coords.latitude), lng:parseFloat(position.coords.longitude)}
  if (isInside == 1 || isInside == true || isInside == 'true') {  
 	$('.isInside').html('<i class="fa fa-sign-in" aria-hidden="true" style="color:green;font-size:120px;"></i><br>You are inside the site!');
  } else {   
@@ -142,7 +149,18 @@ function isLatLngInZone(lat,lng){
   }
 return c;
 }
+function initMap() {
+  // The location of Uluru
+  var ckc = {lat:12.912578,lng:80.218557};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 4, center: ckc});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: mypos, map: map});
+}
 </script>
-
+ <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCr6Ymf6MEb8c_-QQx5MzAkUuhblQ98AxU&callback=initMap">
+    </script>
 </body>
 </html>
