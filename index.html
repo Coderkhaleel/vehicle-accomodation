@@ -151,10 +151,10 @@ return c;
 }
 function initMap() {
   // The location of Uluru
-  var ckc = {lat:35.9833,lng:142.9146};
+  var ckc = {lat:-35.9833,lng:142.9146};
   // The map, centered at Uluru
   var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 10, center: ckc});
+      document.getElementById('map'), {zoom: 7, center: ckc});
   // The marker, positioned at Uluru
   var marker = new google.maps.Marker({position: mypos, map: map});
 }
