@@ -38,7 +38,7 @@
 <div class="isInside" style="font-size: 25px;margin-top:30px;font-size: 50px;"></div>
 <div style="margin-top:10px;font-size:24px;">Refreshing position in <span id="notify"></span></div>
 
-<div id="demo" style="font-size:16px;margin-top:15px;font-size:30px;"></div>
+<div id="demo" style="font-size:16px;margin-top:15px;font-size:30px;margin-bottom: 25px;"></div>
 <div id="map"></div>
 </div>
 </div>
@@ -151,10 +151,10 @@ return c;
 }
 function initMap() {
   // The location of Uluru
-  var ckc = {lat:12.912578,lng:80.218557};
+  var ckc = {lat:35.9833,lng:142.9146};
   // The map, centered at Uluru
   var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 4, center: ckc});
+      document.getElementById('map'), {zoom: 10, center: ckc});
   // The marker, positioned at Uluru
   var marker = new google.maps.Marker({position: mypos, map: map});
 }
